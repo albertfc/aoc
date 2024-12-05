@@ -6,7 +6,7 @@ class Day01a : Day{
   override fun run() {
     val left  = mutableListOf<Int>()
     val right = mutableListOf<Int>()
-    File("src/input01.txt").useLines { lines ->
+    File("data/input01.txt").useLines { lines ->
       lines.forEach {
         val splited = it.split(" ")
         left.add(splited.first().toInt())
@@ -16,9 +16,8 @@ class Day01a : Day{
 
     left.sort()
     right.sort()
-    var total = 0L
-    left.zip(right).forEach{ pair ->
-      total += abs(pair.first - pair.second)
+    val total = left.zip(right).fold(0) { acc, pair ->
+      acc + abs(pair.first - pair.second)
     }
 
     println(total)
