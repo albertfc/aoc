@@ -1,7 +1,5 @@
 import java.io.File
 
-typealias Position = Pair<Int,Int>
-
 class Day06a : Day {
 
   enum class Direction {
